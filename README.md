@@ -1,39 +1,35 @@
-# Ordinary Least Squares (OLS) Linear Regression — From Scratch
+# Linear Regression from First Principles: Derivation, Implementation, and Analysis
 
-## Overview
+This project reconstructs Ordinary Least Squares (OLS) Linear Regression entirely from first principles, covering both theoretical derivation and practical implementation.
 
-This repository presents a first-principles implementation of Simple Linear Regression using the Ordinary Least Squares (OLS) method.
+## What this project does
 
-The objective of this work is to bridge the gap between mathematical derivation and practical implementation by building the regression model entirely from scratch and validating it against Scikit-Learn.
-
----
-
-## Key Components
-
-- Mathematical derivation of linear regression parameters  
-- Closed-form solution for slope and intercept  
-- Implementation using NumPy (no ML libraries used for training)  
-- Visualization of regression fit  
-- Residual analysis  
-- Evaluation using Mean Squared Error (MSE) and R²  
-- Validation against Scikit-Learn  
+- Derives the linear regression model by minimizing Mean Squared Error (MSE)
+- Implements the model from scratch without using machine learning libraries
+- Visualizes the fitted regression line against observed data
+- Analyzes residual behavior to evaluate model adequacy
+- Examines error through Mean Squared Error
+- Validates the implementation against a standard library (Scikit-Learn)
 
 ---
 
-## Regression Model
+## Theoretical Foundation
 
-The model is defined as:
+The regression model is derived by solving an optimization problem:
 
 $$
-y = mx + b
+J(m, b) = \frac{1}{n} \sum (y_i - (mx_i + b))^2
 $$
 
-Where:
+The optimal parameters are obtained analytically as:
 
-- $m$ is the slope  
-- $b$ is the intercept  
+$$
+m = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}, \quad
+b = \bar{y} - m\bar{x}
+$$
 
-The parameters are computed using the closed-form OLS solution.
+Full derivation:  
+→ [`theory/derivation.md`](theory/derivation.md)
 
 ---
 
@@ -49,41 +45,31 @@ The parameters are computed using the closed-form OLS solution.
 
 ---
 
-## Project Structure
+## Key Insights
+
+- Linear regression emerges naturally from an optimization framework
+- Mean Squared Error provides a smooth, convex objective function
+- Residual analysis is essential for evaluating model assumptions
+- Analytical solutions can be validated through numerical implementation
+
+---
+
+## Structure
+
 ```
-.
 ├── notebooks/
 │   └── linear_regression_from_scratch.ipynb
+├── theory/
+│   └── derivation.md
 ├── images/
 │   ├── regression_plot.png
 │   └── residual_plot.png
-└── README.md
-``````
+```
 
- 
----
-
-## Validation
-
-The manually computed parameters match those obtained from Scikit-Learn’s `LinearRegression`, confirming the correctness of the implementation.
 
 ---
 
-## Conclusion
+## Why this project
 
-This project demonstrates the complete workflow of linear regression:
-
-- From mathematical derivation  
-- To implementation  
-- To evaluation and validation  
-
-It serves as a foundational step toward understanding optimization-based learning algorithms used in modern machine learning.
-
----
-
-## Future Work
-
-- Gradient Descent for Linear Regression  
-- Multiple Linear Regression  
-- Regularization (Ridge and Lasso)  
-- Logistic Regression  
+This work focuses on understanding machine learning models beyond library usage, emphasizing derivation, interpretation, and validation.
+It is intended as a foundational step toward more advanced models and optimization-based learning methods.
