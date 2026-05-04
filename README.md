@@ -1,4 +1,4 @@
-# Linear Regression from First Principles: Derivation, Implementation, and Analysis
+e# Linear Regression from First Principles: Derivation, Implementation, and Analysis
 
 This project reconstructs Ordinary Least Squares (OLS) Linear Regression entirely from first principles, covering both theoretical derivation and practical implementation.
 
